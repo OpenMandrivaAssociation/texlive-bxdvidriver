@@ -1,6 +1,6 @@
 Name:		texlive-bxdvidriver
 Version:	43219
-Release:	1
+Release:	2
 Summary:	Enables specifying a driver option effective only in DVI output
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/bxdvidriver
