@@ -3,7 +3,7 @@ Version:	43219
 Release:	2
 Summary:	Enables specifying a driver option effective only in DVI output
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/bxdvidriver
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/bxdvidriver
 License:	mit
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bxdvidriver.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bxdvidriver.doc.r%{version}.tar.xz
