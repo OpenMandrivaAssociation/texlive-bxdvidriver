@@ -1,39 +1,25 @@
-Name:		texlive-bxdvidriver
-Version:	43219
-Release:	2
+%global tl_name bxdvidriver
+%global tl_revision 79089
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.3
+Release:	%{tl_revision}.1
 Summary:	Enables specifying a driver option effective only in DVI output
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/bxdvidriver
 License:	mit
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bxdvidriver.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/bxdvidriver.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bxdvidriver.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/bxdvidriver.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This single-function package enables authors to specify a
-global driver option (dvips, dvipdfmx, etc) which is applied
-only when the engine outputs a DVI file. It is useful to create
-special document- templates that can be compiled in both
-PDF-mode and DVI-mode.
+This single-function package enables authors to specify a global driver
+option (dvips, dvipdfmx, etc) which is applied only when the engine
+outputs a DVI file. It is useful to create special document- templates
+that can be compiled in both PDF-mode and DVI-mode.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/latex/bxdvidriver
-%doc %{_texmfdistdir}/doc/latex/bxdvidriver
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
